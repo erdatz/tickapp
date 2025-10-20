@@ -1,0 +1,46 @@
+{
+  "name": "capstone",
+  "version": "1.0.0",
+  "description": "Backend for a simple game using Node.js and Express with functional programming and immutability",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "cross-env NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --detectOpenHandles --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/jala-university-programacion-4-victor-mamani-marca/capstone.git"
+  },
+  "keywords": [],
+  "author": "Victor Mamani Marca, Victor Pinto Mora, Nelson Ledezma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/jala-university-programacion-4-victor-mamani-marca/capstone/issues"
+  },
+  "homepage": "https://gitlab.com/jala-university-programacion-4-victor-mamani-marca/capstone#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.2",
+    "sequelize": "^6.37.7",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "uuid": "^9.0.1",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.0",
+    "babel-jest": "^30.0.5",
+    "cross-env": "^10.0.0",
+    "jest": "^30.0.5",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
+  }
+}
