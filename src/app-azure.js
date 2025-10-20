@@ -1,4 +1,4 @@
-// src/app.js
+// src/app.js (actualizado para Azure)
 import express from 'express';
 import cors from 'cors';
 
@@ -17,10 +17,10 @@ import trackMiddleware from './middlewares/trackMiddleware.js';
 
 const app = express();
 
-// Configuración de CORS - Soporta tanto desarrollo como producción
+// Configuración de CORS - Actualizado para Azure
 const allowedOrigins = process.env.CORS_ORIGIN 
-  ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim())
-  : ['http://localhost:4200', 'http://localhost:3000'];
+  ? process.env.CORS_ORIGIN.split(',')
+  : ['http://localhost:4200'];
 
 app.use(cors({
   origin: allowedOrigins,
@@ -32,17 +32,13 @@ app.use(cors({
 // Parseo de JSON
 app.use(express.json());
 
-// Health check endpoint para Azure
-app.get('/health', (req, res) => {
-  res.status(200).json({ 
-    status: 'healthy', 
-    timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || 'development'
-  });
-});
-
 // Middleware de tracking
 app.use(trackMiddleware);
+
+// Health check endpoint para Azure
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
+});
 
 // Configuración de cache
 const cacheConfig = { max: 50, maxAge: 5000 };
